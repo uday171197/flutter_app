@@ -44,7 +44,7 @@ class BuyerAuction extends StatelessWidget {
               aspectRatio: 16 / 9,
               autoPlayCurve: Curves.fastOutSlowIn,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 300),
+              autoPlayAnimationDuration: const Duration(milliseconds: 300),
               viewportFraction: 0.8,
             ),
           ),

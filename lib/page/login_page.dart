@@ -1,27 +1,36 @@
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
+
 import 'package:abc_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool change_button = false;
+  @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.black,
-        textStyle: TextStyle(color: Colors.black),
+        color: Colors.white,
+        textStyle: const TextStyle(color: Colors.black),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Image.asset(
                 "images/login.png",
-                fit: BoxFit.contain,
+                fit: BoxFit.fitWidth,
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                'Welcome',
-                style: TextStyle(
+              Text(
+                " Welcome $name ",
+                style: const TextStyle(
                     fontSize: 30,
                     color: Colors.blue,
                     fontWeight: FontWeight.bold),
@@ -42,6 +51,11 @@ class LoginPage extends StatelessWidget {
                         fillColor: Colors.blue,
                         focusColor: Colors.blue,
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          name = value;
+                        });
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -59,15 +73,51 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, Myroutes.homepage);
-                        },
-                        style: TextButton.styleFrom(
-                            minimumSize: const Size(120, 40)),
-                        child: const Text(
-                          'Login',
-                        ))
+                    InkWell(
+                      onTap: () async {
+                        setState(() {
+                          change_button = true;
+                        });
+                        // ignore: avoid_print
+                        await Future.delayed(Duration(seconds: 1));
+                        Navigator.pushNamed(context, Myroutes.homepage);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 300),
+                        height: 50,
+                        width: change_button ? 50 : 150,
+                        alignment: Alignment.center,
+                        child: change_button
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: change_button
+                              ? BorderRadius.circular(50)
+                              : BorderRadius.circular(10),
+                        ),
+                      ),
+                    )
+
+                    // ElevatedButton(
+                    //     onPressed: () {
+                    //       Navigator.pushNamed(context, Myroutes.homepage);
+                    //     },
+                    //     style: TextButton.styleFrom(
+                    //         minimumSize: const Size(120, 40)),
+                    //     child: const Text(
+                    //       'Login',
+                    //     )
+                    //   )
                   ],
                 ),
               )

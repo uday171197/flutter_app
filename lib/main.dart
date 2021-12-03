@@ -17,10 +17,10 @@ class Myapp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(primaryColor: Colors.green),
       darkTheme: ThemeData(
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
           fontFamily: GoogleFonts.lato().fontFamily,
           primaryTextTheme: GoogleFonts.latoTextTheme()),
-      initialRoute: Myroutes.buyerRoute,
+      initialRoute: Myroutes.login,
       routes: {
         Myroutes.homepage: (context) => homepage(),
         Myroutes.login: (context) => const LoginPage(),
