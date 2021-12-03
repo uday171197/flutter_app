@@ -6,15 +6,60 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        child: Center(
-      child: Text(
-        'Login Page',
-        style: TextStyle(
-          color: Colors.blue,
-          fontSize: 50,
-          fontWeight: FontWeight.bold,
-        ),
+      color: Colors.black,
+      textStyle: TextStyle(color: Colors.black),
+      child: Column(
+        children: [
+          Image.asset(
+            "images/login.png",
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            'Welcome',
+            style: TextStyle(
+                fontSize: 30, color: Colors.blue, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  style: const TextStyle(color: Colors.blue),
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your username',
+                    labelText: 'Username',
+                    fillColor: Colors.blue,
+                    focusColor: Colors.blue,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  style: const TextStyle(color: Colors.blue),
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your password',
+                    labelText: 'Password',
+                    fillColor: Colors.blue,
+                    focusColor: Colors.blue,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(onPressed: () {}, child: Text('Login'))
+              ],
+            ),
+          )
+        ],
       ),
-    ));
+    );
   }
 }
