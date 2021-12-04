@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -14,41 +15,142 @@ class BuyerAuction extends StatelessWidget {
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
 
+  double? startprice = 10;
+  double? highestbid = 50;
+  String? doller = "";
   @override
   Widget build(BuildContext context) {
     return Material(
       // color: Colors.white10,
-      child: ListView(
-        children: [
-          CarouselSlider(
-            items: imgList
-                .map(
-                  (image) => Container(
-                    margin: const EdgeInsets.all(6.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4.0),
-                      image: DecorationImage(
-                        image: NetworkImage(image),
-                        fit: BoxFit.cover,
-                      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Product Auction',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      print('hiiii');
+                    },
+                    child: Container(
+                      child: Icon(Icons.arrow_back),
                     ),
                   ),
-                )
-                .toList(),
-
-            //Slider Container properties
-            options: CarouselOptions(
-              height: 180.0,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              aspectRatio: 16 / 9,
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: const Duration(milliseconds: 300),
-              viewportFraction: 0.8,
+                  InkWell(
+                    onTap: () {
+                      print('hiiii');
+                    },
+                    child: Container(
+                      child: Icon(Icons.share),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+            CarouselSlider(
+              items: imgList
+                  .map(
+                    (image) => Container(
+                      margin: const EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.0),
+                        image: DecorationImage(
+                          image: NetworkImage(image),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+
+              //Slider Container properties
+              options: CarouselOptions(
+                height: 180.0,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: const Duration(milliseconds: 300),
+                viewportFraction: 0.8,
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: const Text(
+                            'Motercycle Helmet',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Start Bid : $startprice',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Highest Bid : $highestbid',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "$doller $startprice",
+                          style: const TextStyle(
+                            fontSize: 50,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ))
+          ],
+        ),
       ),
     );
   }

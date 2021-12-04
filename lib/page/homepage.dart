@@ -1,3 +1,4 @@
+import 'package:abc_app/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
@@ -16,6 +17,7 @@ class homepage extends StatelessWidget {
           child: Text('${days} daya of flutter '),
         ),
       )),
+      drawer: myDrawer(),
     );
   }
 }

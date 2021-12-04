@@ -20,11 +20,13 @@ class Myapp extends StatelessWidget {
           brightness: Brightness.light,
           fontFamily: GoogleFonts.lato().fontFamily,
           primaryTextTheme: GoogleFonts.latoTextTheme()),
-      initialRoute: Myroutes.login,
+      initialRoute: Myroutes.homepage,
+      debugShowCheckedModeBanner: false,
       routes: {
         Myroutes.homepage: (context) => homepage(),
         Myroutes.login: (context) => const LoginPage(),
         Myroutes.buyerRoute: (context) => BuyerAuction(),
+        Myroutes.drawerRoute: (context) => BuyerAuction(),
       },
     );
   }
