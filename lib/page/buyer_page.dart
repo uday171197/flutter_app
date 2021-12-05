@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:abc_app/models/product_details.dart';
 
 // ignore: camel_case_types
 class BuyerAuction extends StatelessWidget {
@@ -89,66 +90,77 @@ class BuyerAuction extends StatelessWidget {
                 viewportFraction: 0.8,
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: const Text(
-                            'Motercycle Helmet',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Container(
-                          alignment: Alignment.bottomLeft,
-                          child: Text(
-                            'Start Bid : $startprice',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Highest Bid : $highestbid',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "$doller $startprice",
-                          style: const TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ))
+            // Card(
+            //   child: Padding(
+            //       padding: const EdgeInsets.all(5.0),
+            //       child: Row(
+            //         children: [
+            //           Column(
+            //             children: [
+            //               Container(
+            //                 alignment: Alignment.centerLeft,
+            //                 child: const Text(
+            //                   'Motercycle Helmet',
+            //                   style: TextStyle(
+            //                     fontSize: 16,
+            //                     fontWeight: FontWeight.w700,
+            //                   ),
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 height: 10.0,
+            //               ),
+            //               Container(
+            //                 alignment: Alignment.bottomLeft,
+            //                 child: Text(
+            //                   'Start Bid : $startprice',
+            //                   style: const TextStyle(
+            //                     fontSize: 14,
+            //                     fontWeight: FontWeight.w500,
+            //                   ),
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 height: 10,
+            //               ),
+            //               Container(
+            //                 alignment: Alignment.centerLeft,
+            //                 child: Text(
+            //                   'Highest Bid : $highestbid',
+            //                   style: const TextStyle(
+            //                     fontSize: 14,
+            //                     fontWeight: FontWeight.w500,
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 200,
+            //             width: 200,
+            //             child: Container(
+            //               color: Colors.red,
+            //               alignment: Alignment.center,
+            //               child: Text(
+            //                 "\$$startprice",
+            //                 style: const TextStyle(
+            //                   fontSize: 50,
+            //                   fontWeight: FontWeight.w900,
+            //                 ),
+            //               ),
+            //             ),
+            //           )
+            //         ],
+            //       )),
+            // )
+            Card(
+                child: ListTile(
+              title: Text(ProductDetails.product.productName),
+              subtitle: Text(
+                  "Start Bidding : \$${ProductDetails.product.startBid.toString()}"),
+              trailing:
+                  Text('\$${ProductDetails.product.highestBid.toString()}'),
+            )),
           ],
         ),
       ),

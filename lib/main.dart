@@ -1,3 +1,4 @@
+import 'package:abc_app/widget/theme.dart';
 import 'package:flutter/material.dart';
 import 'page/homepage.dart';
 import 'page/login_page.dart';
@@ -15,12 +16,9 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       // home: homepage(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(primaryColor: Colors.green),
-      darkTheme: ThemeData(
-          brightness: Brightness.light,
-          fontFamily: GoogleFonts.lato().fontFamily,
-          primaryTextTheme: GoogleFonts.latoTextTheme()),
-      initialRoute: Myroutes.homepage,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      initialRoute: Myroutes.buyerRoute,
       debugShowCheckedModeBanner: false,
       routes: {
         Myroutes.homepage: (context) => homepage(),

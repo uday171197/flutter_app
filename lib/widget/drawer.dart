@@ -27,37 +27,31 @@ class myDrawer extends StatelessWidget {
                   backgroundImage: NetworkImage(imageUrl),
                 ),
               )),
-          ListTile(
+          const ListTile(
             leading: Icon(
               Icons.home_outlined,
-              color: Colors.black,
             ),
             title: Text(
               'Home',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(
               Icons.settings,
-              color: Colors.black,
             ),
             title: Text(
               'Setting',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(
               CupertinoIcons.profile_circled,
-              color: Colors.black,
             ),
             title: Text(
               'Profile',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
         ],
